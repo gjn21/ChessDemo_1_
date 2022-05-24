@@ -5,6 +5,20 @@ import model.ChessColor;
 import model.ChessComponent;
 import model.EmptySlotComponent;
 import model.RookChessComponent;
+
+import model.BishopChessComponent;
+import model.KnightChessComponent;
+import model.KingChessComponent;
+import model.QueenChessComponent;
+import model.PawnChessComponent;
+
+
+
+
+
+
+
+
 import controller.ClickController;
 
 import javax.swing.*;
@@ -48,6 +62,50 @@ public class Chessboard extends JComponent {
         initRookOnBoard(0, CHESSBOARD_SIZE - 1, ChessColor.BLACK);
         initRookOnBoard(CHESSBOARD_SIZE - 1, 0, ChessColor.WHITE);
         initRookOnBoard(CHESSBOARD_SIZE - 1, CHESSBOARD_SIZE - 1, ChessColor.WHITE);
+        /**
+         *
+         */
+        initBishopOnBoard(0,2,ChessColor.BLACK);
+        initBishopOnBoard(0,5,ChessColor.BLACK);
+        initBishopOnBoard(7,2,ChessColor.WHITE);
+        initBishopOnBoard(7,2,ChessColor.WHITE);
+
+        initKnightOnBoard(0,1,ChessColor.BLACK);
+        initKnightOnBoard(0,6,ChessColor.BLACK);
+        initKnightOnBoard(7,1,ChessColor.WHITE);
+        initKnightOnBoard(7,1,ChessColor.WHITE);
+
+        initKingOnBoard(0,4,ChessColor.BLACK);
+        initKingOnBoard(0,4,ChessColor.WHITE);
+
+        initQueenOnBoard(0,3,ChessColor.BLACK);
+        initQueenOnBoard(0,3,ChessColor.WHITE);
+
+        initPawnOnBoard(1,0,ChessColor.BLACK);
+        initPawnOnBoard(1,1,ChessColor.BLACK);
+        initPawnOnBoard(1,2,ChessColor.BLACK);
+        initPawnOnBoard(1,3,ChessColor.BLACK);
+        initPawnOnBoard(1,4,ChessColor.BLACK);
+        initPawnOnBoard(1,5,ChessColor.BLACK);
+        initPawnOnBoard(1,6,ChessColor.BLACK);
+        initPawnOnBoard(1,7,ChessColor.BLACK);
+        initPawnOnBoard(1,0,ChessColor.WHITE);
+        initPawnOnBoard(1,1,ChessColor.WHITE);
+        initPawnOnBoard(1,2,ChessColor.WHITE);
+        initPawnOnBoard(1,3,ChessColor.WHITE);
+        initPawnOnBoard(1,4,ChessColor.WHITE);
+        initPawnOnBoard(1,5,ChessColor.WHITE);
+        initPawnOnBoard(1,6,ChessColor.WHITE);
+        initPawnOnBoard(1,7,ChessColor.WHITE);
+
+
+        /**
+         *
+         *
+         */
+
+
+
     }
 
     public ChessComponent[][] getChessComponents() {
@@ -100,6 +158,48 @@ public class Chessboard extends JComponent {
         chessComponent.setVisible(true);
         putChessOnBoard(chessComponent);
     }
+
+    /**
+     * 00
+     * @param
+     */
+
+    private void initBishopOnBoard(int row, int col, ChessColor color) {
+        ChessComponent chessComponent = new BishopChessComponent(new ChessboardPoint(row, col), calculatePoint(row, col), color, clickController, CHESS_SIZE);
+        chessComponent.setVisible(true);
+        putChessOnBoard(chessComponent);
+    }
+
+    private void initKnightOnBoard(int row, int col, ChessColor color) {
+        ChessComponent chessComponent = new KnightChessComponent(new ChessboardPoint(row, col), calculatePoint(row, col), color, clickController, CHESS_SIZE);
+        chessComponent.setVisible(true);
+        putChessOnBoard(chessComponent);
+    }
+
+    private void initKingOnBoard(int row, int col, ChessColor color) {
+        ChessComponent chessComponent = new KingChessComponent(new ChessboardPoint(row, col), calculatePoint(row, col), color, clickController, CHESS_SIZE);
+        chessComponent.setVisible(true);
+        putChessOnBoard(chessComponent);
+    }
+
+    private void initQueenOnBoard(int row, int col, ChessColor color) {
+        ChessComponent chessComponent = new QueenChessComponent(new ChessboardPoint(row, col), calculatePoint(row, col), color, clickController, CHESS_SIZE);
+        chessComponent.setVisible(true);
+        putChessOnBoard(chessComponent);
+    }
+
+    private void initPawnOnBoard(int row, int col, ChessColor color) {
+        ChessComponent chessComponent = new PawnChessComponent(new ChessboardPoint(row, col), calculatePoint(row, col), color, clickController, CHESS_SIZE);
+        chessComponent.setVisible(true);
+        putChessOnBoard(chessComponent);
+    }
+
+
+    /**
+     *
+     *
+     * @param g
+     */
 
 
     @Override
