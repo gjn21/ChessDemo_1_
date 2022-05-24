@@ -51,8 +51,59 @@ public class BishopChessComponent  extends ChessComponent {
      *那个开头的报错你写完这个bishop的运动之后就会消失
      *
      *
+     * @param
+     */
+
+    public boolean canMoveTo(ChessComponent[][] chessComponents, ChessboardPoint destination) {
+        ChessboardPoint source = getChessboardPoint();
+        int x=source.getX();
+        int y=source.getY();//x,y 是初始点，x1是重点，diagnol是对角线和
+        int x1= destination.getX();
+        int y1= destination.getY();
+        if (x+y==x1+y1){
+            int diagonal =x+y;
+            for(int moving=Math.min(x,x1)+1;moving <Math.max(x,x1);moving++){
+                if(!(chessComponents[moving][diagonal-moving]instanceof  EmptySlotComponent)){
+                    return false;
+                }
+            }
+        }else if (Math.abs(x-y)==Math.abs(x1-y1)){
+            int diagnal1=Math.abs(x-y);
+            for (int moving1=Math.min(x,x1);moving1<Math.max(x,x1);moving1++){
+                if (!((chessComponents[moving1][moving1-x+y]) instanceof EmptySlotComponent)){
+                    return false;
+                }
+            }
+        }else{
+            return false;
+        }
+        return true;
+    }
+
+
+
+
+
+
+
+
+
+
+
+    /**
+     *
+     *
+     *
+     *
+     *
+     *
+     *
      * @param g
      */
+
+
+
+
 
 
 
